@@ -13,10 +13,10 @@ footer{
     color: wheat;
     padding: 10px;
 }
-nav, a{
+/* nav, a{
     color: cornflowerblue;
     text-decoration: none;
-}
+} */
 main{
     padding: 20px;
     margin-top: 20px;

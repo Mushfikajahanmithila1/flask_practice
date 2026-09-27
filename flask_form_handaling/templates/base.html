@@ -3,27 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} My site {% endblock %}</title>
+    <title>{% block title %} Flask-WTF site {% endblock %}</title>
     <link rel="stylesheet" href="style.css">
     <style>
         body{font-family: Arial, Helvetica, sans-serif; padding: 25px; background-color: rgb(46, 46, 46);}
 header{background-color: rgb(16, 96, 216); color: white; margin-top: 10px; padding: 15px; text-align: center;}
 footer{margin-top: 15px; background-color: rgb(72, 206, 128);color: white; padding: 10px; text-align: center;}
-nav, a{color: cornflowerblue; text-decoration: none;}
+/* nav, a{color: cornflowerblue; text-decoration: none;} */
 main{padding: 20px; margin-top: 20px; background-color: white; border-radius: 6px;}
     </style>
 </head>
 <body>
     <header>
-        <h2>Welcome to My site</h2>
-        <nav>
-            <a href="/">Home</a>
-        </nav>
+        <h2>Flask-WTF Site</h2>
     </header>
-{% with messages = get_flashed_messages() %}
+{% with messages = get_flashed_messages(with_categories=True) %}
     {% if messages %}
         <ul>
-            {% for msg in messages %}
+            {% for category, msg in messages %}
                 <li style="color: white;">{{ msg }}</li>
             {% endfor %}
         </ul>
@@ -34,7 +31,7 @@ main{padding: 20px; margin-top: 20px; background-color: white; border-radius: 6p
         {% endblock %}
     </main>
     <footer>
-        <p>@2026 Feedback site designed by Mushfikur Rahman</p>
+        <p>@2026 Feedback site / Flask-WTF Site designed by Mushfikur Rahman</p>
     </footer>
 </body>
 </html>

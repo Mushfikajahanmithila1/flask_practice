@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} My To-Do app {% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h2>My To-Do App</h2>
+            <nav>
+                <a href="{{url_for('task.view_tasks')}}">Home</a>
+                {% if user in session %}
+                <a href="{{url_for('auth.logout')}}">Logout</a>
+                {% else %}
+                <a href="{{url_for('auth.login')}}">login</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+{% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <h5>@2026 My To-Do App Designed by Mushfikur Rahman</h5>
+        </div>
+    </footer>
+</body>
+</html>

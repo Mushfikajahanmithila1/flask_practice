@@ -3,12 +3,12 @@
 {% block content %}
 <div class="task-box">
     <h2>Your Task</h2>
-    <form action="{{url_for('task.add')}}" method="post" class="task-form">
+    <form action="{{url_for('task.add_tasks')}}" method="POST" class="task-form">
         <input type="text" name="title" placeholder="New task" required>
         <button type="submit" class="btn">Add</button>
 
         {% if tasks %}
-        <form action="{{url_for('task.clear')}}" method="post">
+        <form action="{{url_for('task.clear_task')}}" method="POST">
             <button type="submit" class="btn btn-clear">Clear All Tasks</button>
         </form>
     </form>

@@ -23,7 +23,7 @@ def add_tasks():
         db.session.add(new_task)
         db.session.commit()
         flash("Task added successfully!", "success")
-    return redirect(url_for("tasks.view_tasks"))
+    return redirect(url_for("task.view_tasks"))
 
 # toggle task
 @tasks_bp.route("/toggle/<int:task_id>", methods=["POST"])
@@ -37,7 +37,7 @@ def toggle_status(task_id):
         else:
             task.status = "Pending"
         db.session.commit()
-        return redirect(url_for("tasks.view_tasks"))
+        return redirect(url_for("task.view_tasks"))
 
 # clear task
 @tasks_bp.route("/clear", methods=["POST"])
@@ -45,4 +45,4 @@ def clear_task():
     Task.query.delete()
     db.session.commit()
     flash("All tasks are cleared.", "info")
-    return redirect(url_for("tasks.view_tasks"))
+    return redirect(url_for("task.view_tasks"))
